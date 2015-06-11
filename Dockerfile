@@ -20,7 +20,7 @@ RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 7638D0442B90D010 &&
     apt-get autoremove && \
     apt-get clean
 
-RUN rm /etc/localtime && ln –s /usr/share/zoneinfo/MST /etc/localtime
+RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/MST /etc/localtime
 ADD config /
 RUN /bin/prepare-postgres vagrant vagrant
 
