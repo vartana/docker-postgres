@@ -25,3 +25,5 @@ su postgres -c "psql template1 -c \"update pg_database set datallowconn = FALSE 
 
 # Avoid password for local connections
 echo 'host all all all md5' >> /etc/postgresql/9.2/main/pg_hba.conf
+echo 'host all postgres 0.0.0.0/0 reject' >> /etc/postgresql/9.2/main/pg_hba.conf
+echo 'host all postgres ::/0 reject' >> /etc/postgresql/9.2/main/pg_hba.conf
