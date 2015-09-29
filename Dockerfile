@@ -24,5 +24,6 @@ RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/MST /etc/localtime
 ADD config /
 RUN /bin/prepare-postgres vagrant vagrant
 
+VOLUME  ["/var/lib/postgresql/9.2/"]
 EXPOSE  5432
 CMD     ["/bin/start-postgres"]
