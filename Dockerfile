@@ -20,6 +20,13 @@ RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 7638D0442B90D010 &&
     apt-get autoremove && \
     apt-get clean
 
+RUN export PERL_MM_USE_DEFAULT=1 && \
+    cpan install Math::Round::Var && \
+    cpan install Date::Calc && \
+    cpan install HTTP::Request::Common && \
+    cpan install LWP::Simple && \
+    cpan install String::Approx
+
 RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/MST /etc/localtime
 ADD config /
 RUN /bin/prepare-postgres vagrant vagrant
